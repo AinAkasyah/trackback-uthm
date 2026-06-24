@@ -154,7 +154,7 @@ function checkAccess(event, targetPageUrl) {
 // FUNGSI SEKATAN KAD BARANG RECENT ITEMS
 function protectedItemDetails(title, location, type, image) {
     if (!isLoggedIn) {
-        alert("🔒 Please log in to view full detail and claim this goods.");
+        alert("🔒 Please log in to view full detail and claim goods.");
         window.location.href = 'login.html';
     } else {
         localStorage.setItem('click_title', title);
