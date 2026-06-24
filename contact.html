@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBack UTHM - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container" onclick="protectedNavigation('index.html')" style="cursor: pointer;">
+            <div class="logo-icon">🛡️</div>
+            <div class="logo-text">
+                <h1>TrackBack UTHM</h1>
+                <span>LOST & FOUND</span>
+            </div>
+        </div>
+        
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html" id="nav-home">Home</a>
+            <a href="report-lost.html" id="nav-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item</a>
+            <a href="report-found.html" id="nav-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item</a>
+            <a href="search.html" id="nav-search" onclick="return checkAccess(event, 'search.html')">Search & Filters</a>
+            <a href="contact.html" id="nav-contact" class="active">Contact Us</a>
+            <a href="login.html" id="nav-auth-btn" class="btn-login-nav">Login</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" id="mobile-home">Home</a>
+        <a href="report-lost.html" id="mobile-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+        <a href="report-found.html" id="mobile-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+        <a href="search.html" id="mobile-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+        <a href="contact.html" id="mobile-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+        <a href="login.html" id="mobile-auth-btn">Login</a>
+    </div>
+
+    <main class="container">
+        <section id="contact-page" class="page active-page">
+            <div class="wizard-navigation" style="margin-bottom: 20px;">
+                <button class="btn-nav btn-back" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <span class="form-subtitle">SUPPORT DESK</span>
+                    <h2 class="form-title">Contact Us</h2>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); window.location.href='index.html';">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Feedback / Message</label>
+                            <textarea rows="4" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-wrapper">
+                    <h2>Support Information</h2>
+                    
+                    <div class="info-card-item">
+                        <div class="info-item-icon">📞</div>
+                        <div class="info-item-text">
+                            <strong>Phone</strong>
+                            <p>+60 00-0000000</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card-item">
+                        <div class="info-item-icon">✉️</div>
+                        <div class="info-item-text">
+                            <strong>Email</strong>
+                            <p>support@trackback.uthm.edu.my</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card-item">
+                        <div class="info-item-icon">🏢</div>
+                        <div class="info-item-text">
+                            <strong>Office</strong>
+                            <p>Student Affairs Office, UTHM Campus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <a href="#terms">Terms & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+            Design with ♡ for BIW20303 Web Design
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

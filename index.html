@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBack UTHM - Lost & Found</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container" onclick="protectedNavigation('index.html')" style="cursor: pointer;">
+            <div class="logo-icon">🛡️</div>
+            <div class="logo-text">
+                <h1>TrackBack UTHM</h1>
+                <span>LOST & FOUND</span>
+            </div>
+        </div>
+        
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html" id="nav-home" class="active">Home</a>
+            <a href="report-lost.html" id="nav-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+            <a href="report-found.html" id="nav-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+            <a href="search.html" id="nav-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+            <a href="contact.html" id="nav-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+            <a href="login.html" id="nav-auth-btn" class="btn-login-nav">Login</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" id="mobile-home">Home</a>
+        <a href="report-lost.html" id="mobile-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+        <a href="report-found.html" id="mobile-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+        <a href="search.html" id="mobile-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+        <a href="contact.html" id="mobile-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+        <a href="login.html" id="mobile-auth-btn">Login</a>
+    </div>
+
+    <main class="container">
+        <section id="home-page" class="page active-page">
+            <div class="guest-alert-banner" id="guestBanner">
+                👋 You are viewing <strong>Guest</strong>. Please <a href="login.html">Login</a> to report or claim goods.
+            </div>
+
+            <div class="quick-search-box">
+                <h3>QUICK SEARCH</h3>
+                <div class="search-input-group">
+                    <input type="text" id="homeSearchInput" placeholder="Search bags, keys, student cards, devices...">
+                    <button class="btn-search" onclick="protectedNavigation('search.html')">Search Items</button>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Recent Lost & Found Items</h2>
+                <button class="btn-view-all" onclick="protectedNavigation('search.html')">View all →</button>
+            </div>
+
+            <div class="items-grid">
+                <div class="item-card" onclick="protectedItemDetails('Blue Laptop Sleeve', 'Last seen near Library Block A', 'Lost', 'trackback-image/blue_laptop_sleeve.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/blue_laptop_sleeve.jpeg" alt="Blue Laptop Sleeve">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-lost">Lost</span>
+                        <h4>Blue Laptop Sleeve</h4>
+                        <p>Last seen near Library Block A</p>
+                        <span class="learn-more">Learn more →</span>
+                    </div>
+                </div>
+                <div class="item-card" onclick="protectedItemDetails('Student ID Card', 'Found at cafeteria entrance', 'Found', 'trackback-image/student_id_card.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/student_id_card.jpeg" alt="Student ID Card">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-found">Found</span>
+                        <h4>Student ID Card</h4>
+                        <p>Found at cafeteria entrance</p>
+                        <span class="learn-more">Claim →</span>
+                    </div>
+                </div>
+                <div class="item-card" onclick="protectedItemDetails('Wireless Earbuds', 'Possibly left in lecture hall', 'Lost', 'trackback-image/wireless_earbuds.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/wireless_earbuds.jpeg" alt="Wireless Earbuds">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-lost">Lost</span>
+                        <h4>Wireless Earbuds</h4>
+                        <p>Possibly left in lecture hall</p>
+                        <span class="learn-more">Learn more →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <a href="#terms">Terms & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+            Design with ♡ for BIW20303 Web Design
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

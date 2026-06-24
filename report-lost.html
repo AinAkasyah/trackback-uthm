@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBack UTHM - Report Lost Item</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container" onclick="protectedNavigation('index.html')" style="cursor: pointer;">
+            <div class="logo-icon">🛡️</div>
+            <div class="logo-text">
+                <h1>TrackBack UTHM</h1>
+                <span>LOST & FOUND</span>
+            </div>
+        </div>
+        
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html" id="nav-home">Home</a>
+            <a href="report-lost.html" id="nav-report-lost" class="active">Report Lost Item</a>
+            <a href="report-found.html" id="nav-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item</a>
+            <a href="search.html" id="nav-search" onclick="return checkAccess(event, 'search.html')">Search & Filters</a>
+            <a href="contact.html" id="nav-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us</a>
+            <a href="login.html" id="nav-auth-btn" class="btn-login-nav">Login</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" id="mobile-home">Home</a>
+        <a href="report-lost.html" id="mobile-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+        <a href="report-found.html" id="mobile-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+        <a href="search.html" id="mobile-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+        <a href="contact.html" id="mobile-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+        <a href="login.html" id="mobile-auth-btn">Login</a>
+    </div>
+
+    <main class="container">
+        <section id="report-lost-page" class="page active-page">
+            <div class="form-wrapper">
+                <span class="form-subtitle">REPORT FORM</span>
+                <h2 class="form-title">Report Lost Item</h2>
+                
+                <form onsubmit="event.preventDefault(); alert('Lost report submitted successfully!'); window.location.href='index.html';">
+                    <div class="form-step active-step" id="lost-step-1">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Item Name</label>
+                                <input type="text" placeholder="Example: Wallet, ID card, laptop">
+                            </div>
+                            <div class="form-group">
+                                <label>Date Lost</label>
+                                <input type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            <textarea rows="4" placeholder="Describe color, brand, unique marks, or contents"></textarea>
+                        </div>
+                        <div class="wizard-navigation">
+                            <button type="button" class="btn-nav btn-back" onclick="window.location.href='index.html'">Back to Home</button>
+                            <button type="button" class="btn-nav btn-next" onclick="switchStep('lost-step-1', 'lost-step-2')">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="lost-step-2">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Location Lost</label>
+                                <input type="text" placeholder="Faculty, Library, cafeteria...">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Information</label>
+                                <input type="text" placeholder="Email or phone number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Image</label>
+                            <input type="file" class="file-input">
+                        </div>
+                        <div class="wizard-navigation">
+                            <button type="button" class="btn-nav btn-back" onclick="switchStep('lost-step-2', 'lost-step-1')">← Back</button>
+                            <button type="submit" class="btn-submit btn-lost-submit">Submit Lost Report</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <a href="#terms">Terms & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+            Design with ♡ for BIW20303 Web Design
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

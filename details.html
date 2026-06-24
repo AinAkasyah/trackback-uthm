@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBack UTHM - Item Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container" onclick="protectedNavigation('index.html')" style="cursor: pointer;">
+            <div class="logo-icon">🛡️</div>
+            <div class="logo-text">
+                <h1>TrackBack UTHM</h1>
+                <span>LOST & FOUND</span>
+            </div>
+        </div>
+        
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html" id="nav-home">Home</a>
+            <a href="report-lost.html" id="nav-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item</a>
+            <a href="report-found.html" id="nav-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item</a>
+            <a href="search.html" id="nav-search">Search & Filters</a>
+            <a href="contact.html" id="nav-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us</a>
+            <a href="login.html" id="nav-auth-btn" class="btn-login-nav">Login</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" id="mobile-home">Home</a>
+        <a href="report-lost.html" id="mobile-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+        <a href="report-found.html" id="mobile-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+        <a href="search.html" id="mobile-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+        <a href="contact.html" id="mobile-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+        <a href="login.html" id="mobile-auth-btn">Login</a>
+    </div>
+
+    <main class="container">
+        <section id="details-page" class="page active-page">
+            <div class="wizard-navigation" style="margin-bottom: 20px;">
+                <button class="btn-nav btn-back" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+            <div class="details-grid">
+                <div class="details-image-section">
+                    <div class="large-image-placeholder">
+                        <img id="det-image" src="trackback-image/black_backpack.jpeg" alt="Item Image">
+                    </div>
+                </div>
+                <div class="details-info-section">
+                    <h2 id="det-title">Black Backpack</h2>
+                    <p class="det-desc">A modern item details wireframe with item image, description, date, location, and claim access. This page helps users verify belongings before contacting support.</p>
+                    
+                    <div class="info-split">
+                        <div class="info-block">
+                            <span class="block-label">DATE</span>
+                            <span class="block-value" id="det-date">12 May 2026</span>
+                        </div>
+                        <div class="info-block">
+                            <span class="block-label">LOCATION</span>
+                            <span class="block-value" id="det-location">Dewan Sultan Ibrahim</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-box">
+                        <h4>Contact Information</h4>
+                        <p>support@trackback.uthm.edu.my • +60 00-0000000</p>
+                    </div>
+
+                    <button class="btn-claim-action" onclick="window.location.href='claim.html'">Claim Item</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <a href="#terms">Terms & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+            Design with ♡ for BIW20303 Web Design
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const savedTitle = localStorage.getItem('click_title');
+        const savedLoc = localStorage.getItem('click_location');
+        const savedDate = localStorage.getItem('click_date');
+        const savedImage = localStorage.getItem('click_image');
+
+        if(savedTitle) {
+            document.getElementById('det-title').innerText = savedTitle;
+            document.getElementById('det-location').innerText = savedLoc;
+            document.getElementById('det-date').innerText = savedDate;
+
+            if(savedImage) {
+                document.getElementById('det-image').src = savedImage;
+            }
+
+            localStorage.removeItem('click_title');
+            localStorage.removeItem('click_location');
+            localStorage.removeItem('click_date');
+            localStorage.removeItem('click_image');
+        }
+    </script>
+</body>
+</html>

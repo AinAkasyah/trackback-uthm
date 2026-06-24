@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackBack UTHM - Search & Filters</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container" onclick="protectedNavigation('index.html')" style="cursor: pointer;">
+            <div class="logo-icon">🛡️</div>
+            <div class="logo-text">
+                <h1>TrackBack UTHM</h1>
+                <span>LOST & FOUND</span>
+            </div>
+        </div>
+        
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html" id="nav-home">Home</a>
+            <a href="report-lost.html" id="nav-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item</a>
+            <a href="report-found.html" id="nav-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item</a>
+            <a href="search.html" id="nav-search" class="active">Search & Filters</a>
+            <a href="contact.html" id="nav-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us</a>
+            <a href="login.html" id="nav-auth-btn" class="btn-login-nav">Login</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" id="mobile-home">Home</a>
+        <a href="report-lost.html" id="mobile-report-lost" onclick="return checkAccess(event, 'report-lost.html')">Report Lost Item 🔒</a>
+        <a href="report-found.html" id="mobile-report-found" onclick="return checkAccess(event, 'report-found.html')">Report Found Item 🔒</a>
+        <a href="search.html" id="mobile-search" onclick="return checkAccess(event, 'search.html')">Search & Filters 🔒</a>
+        <a href="contact.html" id="mobile-contact" onclick="return checkAccess(event, 'contact.html')">Contact Us 🔒</a>
+        <a href="login.html" id="mobile-auth-btn">Login</a>
+    </div>
+
+    <main class="container">
+        <section id="search-page" class="page active-page">
+            <div class="wizard-navigation" style="margin-bottom: 20px;">
+                <button class="btn-nav btn-back" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+            <h2 class="page-title" style="margin-bottom: 20px;">Search & Filters</h2>
+            
+            <div class="filter-container">
+                <div class="filter-box">
+                    <label>Search</label>
+                    <input type="text" placeholder="Search by item name...">
+                </div>
+                <div class="filter-box">
+                    <label>Category</label>
+                    <select>
+                        <option>All categories</option>
+                        <option>Electronics</option>
+                        <option>Documents / Cards</option>
+                        <option>Bags & Wallets</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <label>Location</label>
+                    <select>
+                        <option>All locations</option>
+                        <option>Dewan Sultan Ibrahim</option>
+                        <option>Perpustakaan Tunku Tun Aminah</option>
+                        <option>FSKTM</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <label>Date</label>
+                    <select>
+                        <option>Any date</option>
+                        <option>Today</option>
+                        <option>This Week</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="items-grid">
+                <div class="item-card" onclick="protectedItemDetails('Black Backpack', 'Dewan Sultan Ibrahim', 'Lost', 'trackback-image/black_backpack.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/black_backpack.jpeg" alt="Black Backpack">
+                    </div>
+                    <div class="card-content">
+                        <h4>Black Backpack</h4>
+                    </div>
+                </div>
+                <div class="item-card" onclick="protectedItemDetails('Scientific Calculator', 'FSKTM', 'Found', 'trackback-image/scientific_calculator.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/scientific_calculator.jpeg" alt="Scientific Calculator">
+                    </div>
+                    <div class="card-content">
+                        <h4>Scientific Calculator</h4>
+                    </div>
+                </div>
+                <div class="item-card" onclick="protectedItemDetails('Motorcycle Key', 'Library Area', 'Lost', 'trackback-image/motorcycle_key.jpeg')">
+                    <div class="item-image-placeholder">
+                        <img src="trackback-image/motorcycle_key.jpeg" alt="Motorcycle Key">
+                    </div>
+                    <div class="card-content">
+                        <h4>Motorcycle Key</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <a href="#terms">Terms & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+            Design with ♡ for BIW20303 Web Design
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
