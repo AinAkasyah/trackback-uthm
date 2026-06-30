@@ -1,9 +1,9 @@
-/* ================= ATURAN ASAS / PALET WARNA ================= */
+/* ================= BASE ================= */
 :root {
-    --bg-main: #e2f0fd;         /* Latar belakang biru lembut bercorak grid */
-    --surface-card: #fdfbf2;    /* Warna krim pastel untuk komponen borang & kad */
-    --primary-blue: #0294e3;    /* Biru butang utama */
-    --primary-green: #087d71;   /* Hijau gelap butang hantar laporan */
+    --bg-main: #e2f0fd;
+    --surface-card: #fdfbf2;
+    --primary-blue: #0294e3;
+    --primary-green: #087d71;
     --text-dark: #2c3e50;
     --text-muted: #7f8c8d;
     --lost-color: #e74c3c;
@@ -422,8 +422,8 @@ body {
 }
 
 .badge-lost { 
-    background: linear-gradient(135deg, var(--primary-blue), #00b4db); 
-    box-shadow: 0 4px 10px rgba(2, 148, 227, 0.3);
+    background: linear-gradient(135deg, #ae2727, var(--lost-color)); 
+    box-shadow: 0 4px 10px rgba(174, 39, 39, 0.3);
 }
 .badge-found { 
     background: linear-gradient(135deg, #27ae60, var(--found-color)); 
